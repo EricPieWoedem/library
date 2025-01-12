@@ -1,0 +1,76 @@
+* {
+    /* border: 1px solid red; */
+    font-family: sans-serif;
+}
+
+.header {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.icon {
+    width: 80px;
+    height: 80px;
+}
+
+.icon img {
+    width: 100%;
+    height: 100%;
+}
+
+.text {
+    display: flex;
+}
+
+.header p {
+    font-size: 2.5em;
+    font-weight: 700; 
+    margin: 0;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.add-button {
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 0.8em 1.6em 0.9em 1.3em;
+    color: white;
+    background: #ad5389;
+    background: linear-gradient(
+      0deg,
+      rgb(12, 53, 130) 0%,
+      rgb(32, 104, 248) 100%
+    );
+    border: none;
+    letter-spacing: 0.05em;
+    border-radius: 0.5em;
+  }
+  
+.add-button svg {
+    margin-right: 6px;
+}
+  
+.add-button:hover {
+    box-shadow: 0 0.5em 1.5em -0.5em #1447a798;
+}
+  
+.add-button:active {
+    box-shadow: 0 0.3em 1em -0.5em #149ba798;
+}
+
+.book-card {
+    border: 1px solid black;
+}
+  

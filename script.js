@@ -12,7 +12,7 @@ function Book (title, author, pages, read) {
     };
 }
 
-//storing books in the myLibrary array using the constructor
+//storing books in the myLibrary array using the object constructor
 function addBookToLibrary (title, author, pages, read) {
     const newBook = new Book (title, author, pages, read);
     myLibrary.push(newBook);
@@ -30,9 +30,9 @@ function displayBook () {
 
         bookCard.innerHTML =
          `<h3>${book.title}</h3>
-         <p>Author: ${book.author}</p>
-         <p>Pages: ${book.pages}</p>
-         <p>Status: ${book.read ? "Read" : "Not Read" }</p>
+         <p>By, ${book.author}</p>
+         <p>${book.pages} pages</p>
+         <div p class = "read-status">${book.read ? "Read" : "Not Read" }</div>
          <button class="remove-btn" data-index = "${i}">Remove</button>
          <button class="toggle-read-btn" data-index = "${i}">Mark as ${book.read ? "Unread" : "Read"}</button>
           `;
@@ -61,6 +61,9 @@ libraryContainer.addEventListener("click", (e) => {
     }
 });
 
+// addBookToLibrary("Harry Potter", "J.K. Rowling", 720, true);
+// displayBook();
+
 //modal for entering book details  
 const newBookBtn = document.querySelector("#add-button");
 const modal = document.querySelector("#modal");
@@ -71,12 +74,21 @@ newBookBtn.addEventListener("click", () => {
 });
 
 closeModal.addEventListener('click', () => {
-    modal.style.display = 'none';
+    modal.classList.add("modal-closing");
+    setTimeout(() => {
+        modal.style.display = "none"; 
+        modal.classList.remove("modal-closing"); 
+    }, 200);
 });
 
 window.addEventListener("click", (e) => {
     if (e.target === modal) {
-      modal.style.display = "none";
+        modal.classList.add("modal-closing");
+        document.body.style.overflow = "auto";
+      setTimeout(() => {
+        modal.style.display = "none"; 
+        modal.classList.remove("modal-closing"); 
+    }, 100);
     }
   });
 
@@ -95,8 +107,13 @@ newBookForm.addEventListener("submit" , (e) => {
     
     displayBook();
     
-    modal.style.display = "none";
-    
+    modal.classList.add("modal-closing");
+    document.body.style.overflow = "auto";
+    setTimeout(() => {
+      modal.style.display = "none"; 
+      modal.classList.remove("modal-closing"); 
+  }, 100);
+
     newBookForm.reset();
 });
 
